@@ -20,8 +20,10 @@ class WeatherClient:
     def get(self):
         url = "{}?{}".format(self.BASE_URL, urlencode({
             "appid": self.app_id,
-            "coordinates": self.coordinates,
-            "output": "json"
+            "coordinates": "{},{}".format(*self.coordinates),
+            "output": "json",
+            "past": 1,
+            "interval": 5
         }))
         with urlopen(url) as res:
             return json.loads(res.read().decode('utf-8'))
