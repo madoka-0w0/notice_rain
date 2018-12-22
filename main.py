@@ -32,8 +32,6 @@ def send_slack_if_rain(manager, slack):
         message = "雨が１時間以内に降るかもしれません。"
     if message is not None:
         slack.send(message)
-    else:
-        slack.send("test")
 
 
 def __is_raining(weathers):

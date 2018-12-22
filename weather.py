@@ -24,6 +24,4 @@ class WeatherClient:
             "output": "json"
         }))
         with urlopen(url) as res:
-            read = res.read()
-            print(read)
-            return json.loads(read.decode('utf-8'))
+            return json.loads(res.read().decode('utf-8'))
